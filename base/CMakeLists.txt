@@ -1,0 +1,7 @@
+set(CMAKE_BUILD_TYPE Debug)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+aux_source_directory(common common)
+aux_source_directory(vehicle vehicle)
+aux_source_directory(drivers drivers)
+add_library(vehicle SHARED ${common} component.cpp ${vehicle} ${drivers})
+TARGET_LINK_LIBRARIES(vehicle ${CRMW_LIBRARIES})
